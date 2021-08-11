@@ -12,6 +12,15 @@ function Songs(){
         .then(resp => resp.json())
         .then(resp => setSongs(resp.songs))
     },[])
+    function handleDelete(event){
+        fetch("http://localhost:9393/tasks/"[0], {
+            method: "DELETE",
+            headers: {
+              'Content-Type': 'application/json',
+            }  
+        })
+        
+    }
 
     function addNewSong(newSong){
         const addNewSong = [...songs, newSong]
