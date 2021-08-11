@@ -1,6 +1,5 @@
 import './App.css';
 import Songs from './components/Songs'
-import FormSongs from './components/FormSongs'
 
 
 function App() {
@@ -8,7 +7,6 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Songs />
-        <FormSongs />
       </header>
     </div>
   );

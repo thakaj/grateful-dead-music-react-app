@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 
-function Form(){
+function Form({addNewSong}){
     const [name, setName] = useState("")
 
     function handleSubmit(event){
@@ -17,8 +17,8 @@ function Form(){
             })
         })
         .then(response => response.json())
-        .then(data => console.log(data))
-        setName("")
+        .then(data => addNewSong(data))
+        
     }  
       
     function handleChange(event){
@@ -26,7 +26,10 @@ function Form(){
     }
     return (
         <form onSubmit={handleSubmit}>
-            <input type="text"  onChange ={handleChange}/>
+            <label>Song Name: </label>
+            <input type="text"  
+            onChange ={handleChange}
+            placeholder="enter your song name..."/>
             <button type ="Submit" value={name}>Submit!</button>
         </form>
     ) 
