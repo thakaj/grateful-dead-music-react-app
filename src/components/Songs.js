@@ -12,26 +12,22 @@ function Songs(){
         .then(resp => resp.json())
         .then(resp => setSongs(resp.songs))
     },[])
-    function handleDelete(event){
-        fetch("http://localhost:9393/tasks/"[0], {
-            method: "DELETE",
-            headers: {
-              'Content-Type': 'application/json',
-            }  
-        })
-        
-    }
-
+    
     function addNewSong(newSong){
         const addNewSong = [...songs, newSong]
         setSongs(addNewSong)
     }
+    function removeSong(removedSongId){
+        const removeSong = songs.filter(song => song.id !== removedSongId)
+        setSongs(removeSong)
+    }
+
 
     return (
         <div>
            <h1>Add your favorite songs from the show!</h1>
            <FormSongs addNewSong={addNewSong}/>
-           {songs.map(songs =><SongCard name={songs.name} key={songs.id}/>)}
+           {songs.map(song =><SongCard name={song.name} removeSong={removeSong} key={song.id} id={song.id}/>)}
         </div>
     )
 }
