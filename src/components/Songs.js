@@ -25,7 +25,7 @@ function Songs(){
 
     return (
         <div>
-           <h1>Add your favorite songs from the show!</h1>
+           <h1>Add your favorite songs from your favoirte bands!</h1>
            <FormSongs addNewSong={addNewSong}/>
            {songs.map(song =><SongCard name={song.name} removeSong={removeSong} key={song.id} id={song.id}/>)}
         </div>
