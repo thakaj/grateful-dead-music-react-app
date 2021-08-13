@@ -17,7 +17,8 @@ function Form({addNewSong}){
             })
         })
         .then(response => response.json())
-        .then(data => addNewSong(data))      
+        .then(data => addNewSong(data))
+        window.location.reload()      
     }  
       
     function handleChange(event){

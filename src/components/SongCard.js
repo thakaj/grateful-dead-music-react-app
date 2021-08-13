@@ -2,7 +2,7 @@ import React from "react"
 
 
 function SongCard({name, id, removeSong}){
-    console.log("song id:", id)
+    console.log(id)
     function handleDelete(event){
         fetch(`http://localhost:9393/songs/${id}`, {
             method: "DELETE",
